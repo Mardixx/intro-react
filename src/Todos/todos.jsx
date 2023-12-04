@@ -1,17 +1,18 @@
+import { useState } from "react";
+
 export const ToDos = () => {
+    const initialTodos = ["Learn at BeCode", "Be Important!"];
+    const [todos, setTodos] = useState(initialTodos);
     return(
         <div className="view-tasks">
             <h2>ToDos</h2>
-            <div className="tasks">
-                <div className="task">
-                    <input type="checkbox" name="" id="" />
-                    <span>Learn React</span>
-                </div>
-                <div className="task">
-                    <input type="checkbox" name="" id="" />
-                    <span>Be Awesome!</span>
-                </div>
-            </div>
+            <ul className="tasks">
+                {todos.map((todo) => (
+                    <li className="task" key={todo}>
+                        <input type="checkbox" /> {todo}
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
